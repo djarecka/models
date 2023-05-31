@@ -1,0 +1,44 @@
+name: generating other formats
+
+on:
+  push:
+    branches:
+      - GA_converter_tmp
+  pull_request:
+
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+#    strategy:
+#      matrix:
+#        python-version: "3.9"
+
+    steps:
+      - name: Checkout this repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.9
+
+      - name: Setup build environment
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y build-essential git wget curl
+
+      - name: Generate Biolink Model artifacts
+        run: |
+#          export PATH=$PATH:`pwd`/jsonschema2pojo-1.0.2/bin
+#          make -B install build
+          gen-json-schema linkml-schema/kbmodel.yaml > json-schema_autogen/kbmodel.json
+          if [ $? -eq 0 ]; then
+            git config --local user.email "action@github.com"
+            git config --local user.name "GitHub Action"
+            git add json-schema_autogen/kbmodel.json
+            git commit -m "generate"
+            git push
+          else
+            echo "error"
+          fi
