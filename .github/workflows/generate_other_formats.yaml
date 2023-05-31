@@ -32,12 +32,14 @@ jobs:
           sudo apt-get install -y build-essential git wget curl
 
       - name: Generate other model representations
+        continue-on-error: true
         run: |
           cd linkml-schema
           for file in *.yaml; 
             do name=`basename ${file} .yaml`;  
             gen-json-schema  ${file} > ../json-schema-autogen/${name}.json;
             gen-pydantic ${file} > ../models_py/autogen/${name}.py;
+            gen-shacl ${file} > ../shacl-autogen/${name}.shacl.ttl;
           done
           cd ..
       - name: Adding other model representations to git
