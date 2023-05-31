@@ -36,15 +36,13 @@ jobs:
           cd linkml-schema
           for file in *.yaml; 
             do name=`basename ${file} .yaml`;  
-            touch ../json-schema_autogen/${name}.json; 
+            gen-json-schema  ${file} > ../json-schema_autogen/${name}.json; 
           done
           cd ..
-          if [ $? -eq 0 ]; then
-            git config --local user.email "action@github.com"
-            git config --local user.name "GitHub Action"
-            git add json-schema_autogen/*.json
-            git commit -m "generate"
-            git push
-          else
-            echo "error"
-          fi
+      - name: Adding other model representations to git
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add json-schema_autogen/*.json
+          git commit -m "generate another formats"
+          git push
+
