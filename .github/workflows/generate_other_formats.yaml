@@ -48,8 +48,8 @@ jobs:
         with:
           node-version: 18
         run: |
-        npm ci
-        npm test
+          npm ci
+          npm test
       - name: Adding other model representations to git
         run: |  
           git config --local user.email "action@github.com"
