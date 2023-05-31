@@ -37,7 +37,7 @@ jobs:
           for file in *.yaml; 
             do name=`basename ${file} .yaml`;  
             gen-json-schema  ${file} > ../json-schema_autogen/${name}.json;
-            gen-pydantic ${file} > models_py_autogen/${name}.py
+            gen-pydantic ${file} > ../models_py/autogen/${name}.py
           done
           cd ..
       - name: Adding other model representations to git
