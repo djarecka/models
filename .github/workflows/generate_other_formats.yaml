@@ -36,17 +36,17 @@ jobs:
           cd linkml-schema
           for file in *.yaml; 
             do name=`basename ${file} .yaml`;  
-            gen-json-schema  ${file} > ../json-schema_autogen/${name}.json;
+            gen-json-schema  ${file} > ../json-schema-autogen/${name}.json;
             gen-pydantic ${file} > ../models_py/autogen/${name}.py;
-            gen-shacl ${file} > ../shacl_autogen/${name}.shacl.ttl;
+            gen-shacl ${file} > ../shacl-autogen/${name}.shacl.ttl;
           done
           cd ..
       - name: Adding other model representations to git
         run: |  
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add json-schema_autogen/*.json
+          git add json-schema-autogen/*.json
           git add models_py/autogen/${name}.py
-          git add shacl_autogen/*.shacl.ttl
+          git add shacl-autogen/*.shacl.ttl
           git commit -m "generate another formats"
           git push
