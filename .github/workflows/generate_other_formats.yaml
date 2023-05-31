@@ -45,7 +45,7 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add json-schema-autogen/*.json
-          git add models_py/autogen/${name}.py
+          git add models_py/autogen/*.py
           git add shacl-autogen/*.shacl.ttl
           git commit -m "generate another formats"
           git push
