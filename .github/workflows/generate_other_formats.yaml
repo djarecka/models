@@ -40,9 +40,9 @@ jobs:
           done
           cd ..
       - name: Adding other model representations to git
+        run: |  
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add json-schema_autogen/*.json
           git commit -m "generate another formats"
           git push
-
