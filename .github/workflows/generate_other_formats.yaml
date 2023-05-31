@@ -38,7 +38,6 @@ jobs:
             do name=`basename ${file} .yaml`;  
             gen-json-schema  ${file} > ../json-schema-autogen/${name}.json;
             gen-pydantic ${file} > ../models_py/autogen/${name}.py;
-            gen-shacl ${file} > ../shacl-autogen/${name}.shacl.ttl;
           done
           cd ..
       - name: Adding other model representations to git
