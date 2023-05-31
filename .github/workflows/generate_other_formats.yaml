@@ -31,13 +31,17 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y build-essential git wget curl
 
-      - name: Generate Biolink Model artifacts
+      - name: Generate other model representations
         run: |
-          gen-json-schema linkml-schema/kbmodel.yaml > json-schema_autogen/kbmodel.json
+          cd linkml-model
+          for file in *.yaml; 
+            do name=`basename ${file} .yaml`;  
+            touch ../json-schema_autogen/${name}.json; 
+          done
           if [ $? -eq 0 ]; then
             git config --local user.email "action@github.com"
             git config --local user.name "GitHub Action"
-            git add json-schema_autogen/kbmodel.json
+            git add json-schema_autogen/*.json
             git commit -m "generate"
             git push
           else
