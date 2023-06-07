@@ -76,3 +76,17 @@ jobs:
           git commit -m "generate svg"
           git push
 
+      - name: Create local docs
+        run: |
+          mkdir docs
+          touch docs/.nojekyll
+          gen-doc -d docs linkml-schema/ccn2.yaml
+          mkdocs gh-deploy
+
+      - name: Adding doc
+        run: |  
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add doc/*
+          git commit -m "generate doc"
+          git push
