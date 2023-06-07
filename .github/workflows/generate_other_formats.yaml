@@ -40,7 +40,7 @@ jobs:
             gen-json-schema  ${file} > ../json-schema-autogen/${name}.json;
             gen-pydantic ${file} > ../models_py/autogen/${name}.py;
             gen-shacl ${file} > ../shacl-autogen/${name}.shacl.ttl;
-            gen-erdiagram ${file} > ../erdiagram-autogen/${name}.mmd;
+            gen-erdiagram ${file} > ../erdiagram-autogen/${name}.md;
           done
           cd ..
       - name: Adding other model representations to git
@@ -50,7 +50,7 @@ jobs:
           git add json-schema-autogen/*.json
           git add models_py/autogen/*.py
           git add shacl-autogen/*.shacl.ttl
-          git add erdiagram-autogen/*.mmd
+          git add erdiagram-autogen/*.md
           git commit -m "generate another formats"
           git push
       - name: switch to npm
@@ -63,8 +63,8 @@ jobs:
       - name: test npm
         run: |
           cd erdiagram-autogen;
-          for file in *.mmd;
-            do name=`basename ${file} .mmd`; 
+          for file in *.md;
+            do name=`basename ${file} .md`;
             mmdc -i ${file} -o ${name}.svg
           done
           cd ..
