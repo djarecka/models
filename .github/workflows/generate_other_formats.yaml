@@ -53,28 +53,28 @@ jobs:
           git add erdiagram-autogen/*.md
           git commit -m "generate another formats"
           git push
-      - name: switch to npm
-        uses: actions/setup-node@v3
-        with:
-          node-version: 18
-      - name: test npm
-        run: |
-          npm install -g @mermaid-js/mermaid-cli
-      - name: test npm
-        run: |
-          cd erdiagram-autogen;
-          for file in *.md;
-            do name=`basename ${file} .md`;
-            mmdc -i ${file} -o ${name}.svg
-          done
-          cd ..
-      - name: Adding svg
-        run: |  
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git add erdiagram-autogen/*.svg
-          git commit -m "generate svg"
-          git push
+#      - name: switch to npm
+#        uses: actions/setup-node@v3
+#        with:
+#          node-version: 18
+#      - name: test npm
+#        run: |
+#          npm install -g @mermaid-js/mermaid-cli
+#      - name: test npm
+#        run: |
+#          cd erdiagram-autogen;
+#          for file in *.md;
+#            do name=`basename ${file} .md`;
+#            mmdc -i ${file} -o ${name}.svg
+#          done
+#          cd ..
+#      - name: Adding svg
+#        run: |
+#          git config --local user.email "action@github.com"
+#          git config --local user.name "GitHub Action"
+#          git add erdiagram-autogen/*.svg
+#          git commit -m "generate svg"
+#          git push
 
       - name: Create local docs
         run: |
