@@ -82,6 +82,7 @@ jobs:
         run: |
           mkdir docs
           touch docs/.nojekyll
+          cp -r src/docs/* docs/
           gen-doc -d docs linkml-schema/ccn2.yaml
           mkdocs gh-deploy
 
