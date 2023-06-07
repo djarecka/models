@@ -24,7 +24,7 @@ jobs:
           python-version: 3.9
 
       - name: Install the required python packages
-        run: python -m pip install .[test]
+        run: python -m pip install .[test,docs]
 
       - name: Other installations
         run: |
@@ -44,7 +44,8 @@ jobs:
           done
           cd ..
       - name: Adding other model representations to git
-        run: |  
+        continue-on-error: true
+        run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add json-schema-autogen/*.json
@@ -69,6 +70,7 @@ jobs:
 #          done
 #          cd ..
 #      - name: Adding svg
+#        continue-on-error: true
 #        run: |
 #          git config --local user.email "action@github.com"
 #          git config --local user.name "GitHub Action"
