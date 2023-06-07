@@ -43,13 +43,6 @@ jobs:
             gen-erdiagram ${file} > ../erdiagram-autogen/${name}.mmd;
           done
           cd ..
-      - name: test npm
-        uses: actions/setup-node@v3
-        with:
-          node-version: 18
-        run: |
-          npm ci
-          npm test
       - name: Adding other model representations to git
         run: |  
           git config --local user.email "action@github.com"
@@ -60,3 +53,11 @@ jobs:
           git add erdiagram-autogen/*.mmd
           git commit -m "generate another formats"
           git push
+      - name: switch to npm
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - name: test npm
+        run: |
+          npm ci
+          npm test
