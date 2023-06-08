@@ -84,7 +84,6 @@ jobs:
           touch docs/.nojekyll
           cp -r src/docs/* docs/
           gen-doc -d docs linkml-schema/ccn2.yaml
-          gen-doc -d docs linkml-schema/kbmodel.yaml
           mkdocs gh-deploy
 
       - name: Adding doc
