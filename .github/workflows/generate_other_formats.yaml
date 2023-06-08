@@ -87,11 +87,11 @@ jobs:
           gen-doc -d docs linkml-schema/kbmodel.yaml
           mkdocs gh-deploy --force
 
-      - name: Adding doc
-        continue-on-error: true
-        run: |  
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git add docs/*
-          git commit -m "generate doc"
-          git push
+#      - name: Adding doc
+#        continue-on-error: true
+#        run: |
+#          git config --local user.email "action@github.com"
+#          git config --local user.name "GitHub Action"
+#          git add docs/*
+#          git commit -m "generate doc"
+#          git push
