@@ -78,13 +78,13 @@ jobs:
 #          git commit -m "generate svg"
 #          git push
 
-      - name: Create local docs
-        run: |
-          mkdir docs
-          touch docs/.nojekyll
-          cp -r src/docs/* docs/
-          gen-doc -d docs linkml-schema/ccn2.yaml
-          mkdocs gh-deploy --force
+#      - name: Create local docs
+#        run: |
+#          mkdir docs
+#          touch docs/.nojekyll
+#          cp -r src/docs/* docs/
+#          gen-doc -d docs linkml-schema/ccn2.yaml
+#          mkdocs gh-deploy --force
 
 #      - name: Adding doc
 #        continue-on-error: true
