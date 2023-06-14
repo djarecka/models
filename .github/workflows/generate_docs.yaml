@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - GA_converter_tmp
+    paths:
+      - linkml-schema/kbmodel.yaml
   pull_request:
 
 
