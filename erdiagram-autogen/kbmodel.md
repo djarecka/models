@@ -11,7 +11,7 @@ PredicateMapping {
     string subject_part_qualifier  
     string subject_derivative_qualifier  
     string subject_context_qualifier  
-    predicate type predicate  
+    predicate_type predicate  
     string qualified_predicate  
     string object_aspect_qualifier  
     DirectionQualifierEnum object_direction_qualifier  
@@ -26,21 +26,21 @@ NamedThing {
     stringList provided_by  
     uriorcurieList xref  
     string id  
-    iri type iri  
-    category typeList category  
+    iri_type iri  
+    category_typeList category  
     stringList type  
-    label type name  
-    narrative text description  
+    label_type name  
+    narrative_text description  
 }
 Attribute {
-    label type name  
-    iri type iri  
+    label_type name  
+    iri_type iri  
     string id  
     stringList provided_by  
     uriorcurieList xref  
-    category typeList category  
+    category_typeList category  
     stringList type  
-    narrative text description  
+    narrative_text description  
 }
 QuantityValue {
     unit has_unit  
@@ -53,11 +53,11 @@ OrganismTaxon {
     stringList provided_by  
     uriorcurieList xref  
     string id  
-    iri type iri  
-    category typeList category  
+    iri_type iri  
+    category_typeList category  
     stringList type  
-    label type name  
-    narrative text description  
+    label_type name  
+    narrative_text description  
 }
 AnnotationCollection {
 
@@ -73,41 +73,41 @@ GenomeAnnotation {
     uriorcurie reference_assembly  
     string version  
     stringList content_url  
-    biological sequence has_biological_sequence  
+    biological_sequence has_biological_sequence  
     string id  
-    label type in_taxon_label  
+    label_type in_taxon_label  
     stringList provided_by  
     uriorcurieList xref  
-    iri type iri  
-    category typeList category  
+    iri_type iri  
+    category_typeList category  
     stringList type  
-    label type name  
-    narrative text description  
+    label_type name  
+    narrative_text description  
 }
 Checksum {
     DigestType checksum_algorithm  
     string value  
     string id  
-    iri type iri  
-    category typeList category  
+    iri_type iri  
+    category_typeList category  
     stringList type  
-    label type name  
-    narrative text description  
+    label_type name  
+    narrative_text description  
 }
 GeneAnnotation {
     BioType molecular_type  
     string symbol  
-    label typeList synonym  
+    label_typeList synonym  
     uriorcurieList xref  
-    biological sequence has_biological_sequence  
+    biological_sequence has_biological_sequence  
     string id  
-    label type in_taxon_label  
+    label_type in_taxon_label  
     stringList provided_by  
-    iri type iri  
-    category typeList category  
+    iri_type iri  
+    category_typeList category  
     stringList type  
-    symbol type name  
-    narrative text description  
+    symbol_type name  
+    narrative_text description  
 }
 
 MappingCollection ||--}o PredicateMapping : "predicate mappings"
