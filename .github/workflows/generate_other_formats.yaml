@@ -40,6 +40,9 @@ jobs:
             gen-json-schema  ${file} > ../json-schema-autogen/${name}.json;
             gen-pydantic ${file} > ../models_py/autogen/${name}.py;
             gen-shacl ${file} > ../shacl-autogen/${name}.shacl.ttl;
+            if [ ${name} = "kbmodel" ]; then
+              python ../utils/fix_kbmodel_diagram.py
+            fi
             gen-erdiagram ${file} > ../erdiagram-autogen/${name}.md;
           done
           cd ..
