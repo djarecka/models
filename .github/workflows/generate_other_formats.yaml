@@ -35,8 +35,9 @@ jobs:
         continue-on-error: true
         run: |
           cd linkml-schema
-          for file in *.yaml; 
-            do name=`basename ${file} .yaml`;  
+          for file in *.yaml;
+            do name=`basename ${file} .yaml`;
+            echo "Processing $name file..";
             gen-json-schema  ${file} > ../json-schema-autogen/${name}.json;
             gen-pydantic ${file} > ../models_py/autogen/${name}.py;
             gen-shacl ${file} > ../shacl-autogen/${name}.shacl.ttl;
