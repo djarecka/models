@@ -2,8 +2,7 @@ name: generating other formats
 
 on:
   push:
-    branches:
-      - main
+
   pull_request:
 
 
