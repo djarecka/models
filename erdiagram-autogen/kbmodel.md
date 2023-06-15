@@ -1,3 +1,4 @@
+```mermaid
 erDiagram
 AnnotationCollection {
 
@@ -73,4 +74,6 @@ Mapping ||--|o GeneAnnotation : "gene_identifier_1"
 Mapping ||--|o GeneAnnotation : "gene_identifier_2"
 Mapping ||--}o NamedThing : "member of"
 Checksum ||--}o Attribute : "has attribute"
+
+```
 
