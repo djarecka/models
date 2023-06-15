@@ -38,14 +38,6 @@ jobs:
             do name=`basename ${file} .yaml`;
             echo "Processing $name file..";
             gen-json-schema  ${file} > ../json-schema-autogen/${name}.json;
-#            gen-pydantic ${file} > ../models_py/autogen/${name}.py;
-#            gen-shacl ${file} > ../shacl-autogen/${name}.shacl.ttl;
-#            if [ ${name} = "kbmodel" ]; then
-#              echo "Creating and Fixing kbmodel diagram..";
-#              python ../utils/create_fix_kbmodel_diagram.py
-#            else
-#              gen-erdiagram ${file} > ../erdiagram-autogen/${name}.md;
-#            fi
           done
           cd ..
       - name: Adding other model representations to git
@@ -54,9 +46,6 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add json-schema-autogen/*.json
-#          git add models_py/autogen/*.py
-#          git add shacl-autogen/*.shacl.ttl
-#          git add erdiagram-autogen/*.md
           git commit -m "generate another formats"
           git push
 #      - name: switch to npm
