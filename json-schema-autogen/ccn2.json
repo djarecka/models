@@ -2,6 +2,7 @@
     "$defs": {
         "CellSetAccessionToCellMapping": {
             "additionalProperties": false,
+            "description": "",
             "properties": {
                 "cell_accessions": {
                     "description": "List of cell set accession identifiers.",
