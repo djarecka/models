@@ -1,0 +1,101 @@
+name: generating other formats
+
+on:
+  push:
+    branches:
+      - test_ga
+  pull_request:
+
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+#    strategy:
+#      matrix:
+#        python-version: "3.9"
+
+    steps:
+      - name: Checkout this repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.9
+
+      - name: Install the required python packages
+        run: python -m pip install .[test,docs]
+
+      - name: Other installations
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y build-essential git wget curl
+
+      - name: Generate other model representations
+        run: |
+          cd linkml-schema
+          for file in *.yaml;
+            do name=`basename ${file} .yaml`;
+            echo "Processing $name file..";
+            gen-json-schema  ${file} > ../json-schema-autogen/${name}.json;
+#            gen-pydantic ${file} > ../models_py/autogen/${name}.py;
+#            gen-shacl ${file} > ../shacl-autogen/${name}.shacl.ttl;
+#            if [ ${name} = "kbmodel" ]; then
+#              echo "Creating and Fixing kbmodel diagram..";
+#              python ../utils/create_fix_kbmodel_diagram.py
+#            else
+#              gen-erdiagram ${file} > ../erdiagram-autogen/${name}.md;
+#            fi
+          done
+          cd ..
+      - name: Adding other model representations to git
+        continue-on-error: true
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add json-schema-autogen/*.json
+#          git add models_py/autogen/*.py
+#          git add shacl-autogen/*.shacl.ttl
+#          git add erdiagram-autogen/*.md
+          git commit -m "generate another formats"
+          git push
+#      - name: switch to npm
+#        uses: actions/setup-node@v3
+#        with:
+#          node-version: 18
+#      - name: test npm
+#        run: |
+#          npm install -g @mermaid-js/mermaid-cli
+#      - name: test npm
+#        run: |
+#          cd erdiagram-autogen;
+#          for file in *.md;
+#            do name=`basename ${file} .md`;
+#            mmdc -i ${file} -o ${name}.svg
+#          done
+#          cd ..
+#      - name: Adding svg
+#        continue-on-error: true
+#        run: |
+#          git config --local user.email "action@github.com"
+#          git config --local user.name "GitHub Action"
+#          git add erdiagram-autogen/*.svg
+#          git commit -m "generate svg"
+#          git push
+
+#      - name: Create local docs
+#        run: |
+#          mkdir docs
+#          touch docs/.nojekyll
+#          cp -r src/docs/* docs/
+#          gen-doc -d docs linkml-schema/ccn2.yaml
+#          mkdocs gh-deploy --force
+
+#      - name: Adding doc
+#        continue-on-error: true
+#        run: |
+#          git config --local user.email "action@github.com"
+#          git config --local user.name "GitHub Action"
+#          git add docs/*
+#          git commit -m "generate doc"
+#          git push
