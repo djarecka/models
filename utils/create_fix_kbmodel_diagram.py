@@ -11,7 +11,7 @@ with kbmodel_yaml.open() as f:
 classes = schema_yaml["classes"].keys()
 
 # generating the gen-erdiagram command and including all the classes from the yaml file
-cmd = ["gen-erdiagram", "--format", "mermaid"]
+cmd = ["gen-erdiagram"]
 
 for cl in classes:
     cmd.extend(["-c", f'"{cl}"'])
