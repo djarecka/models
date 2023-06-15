@@ -43,7 +43,7 @@ jobs:
             if [ ${name} = "kbmodel" ]; then
               echo "Creating and Fixing kbmodel diagram..";
               python ../utils/create_fix_kbmodel_diagram.py
-            else:
+            else
               gen-erdiagram ${file} > ../erdiagram-autogen/${name}.md;
             fi
           done
