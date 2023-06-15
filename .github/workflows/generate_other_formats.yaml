@@ -3,7 +3,7 @@ name: generating other formats
 on:
   push:
     branches:
-      - test_ga
+      - main
   pull_request:
 
 
