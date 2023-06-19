@@ -1,0 +1,92 @@
+# Slot: sex_qualifier
+
+
+_a qualifier used in a phenotypic association to state whether the association is specific to a particular sex._
+
+
+
+URI: [bican:sex_qualifier](https://identifiers.org/brain-bican/vocab/sex_qualifier)
+
+
+
+
+## Inheritance
+
+* [association_slot](association_slot.md)
+    * [qualifier](qualifier.md)
+        * **sex_qualifier**
+
+
+
+
+
+## Applicable Classes
+
+| Name | Description | Modifies Slot |
+| --- | --- | --- |
+[EntityToPhenotypicFeatureAssociationMixin](EntityToPhenotypicFeatureAssociationMixin.md) |  |  no  |
+[GenotypeToPhenotypicFeatureAssociation](GenotypeToPhenotypicFeatureAssociation.md) | Any association between one genotype and a phenotypic feature, where having t... |  no  |
+[ExposureEventToPhenotypicFeatureAssociation](ExposureEventToPhenotypicFeatureAssociation.md) | Any association between an environment and a phenotypic feature, where being ... |  no  |
+[DiseaseToPhenotypicFeatureAssociation](DiseaseToPhenotypicFeatureAssociation.md) | An association between a disease and a phenotypic feature in which the phenot... |  no  |
+[CaseToPhenotypicFeatureAssociation](CaseToPhenotypicFeatureAssociation.md) | An association between a case (e |  no  |
+[BehaviorToBehavioralFeatureAssociation](BehaviorToBehavioralFeatureAssociation.md) | An association between an mixture behavior and a behavioral feature manifeste... |  no  |
+[GeneToDiseaseOrPhenotypicFeatureAssociation](GeneToDiseaseOrPhenotypicFeatureAssociation.md) |  |  no  |
+[GeneToPhenotypicFeatureAssociation](GeneToPhenotypicFeatureAssociation.md) |  |  no  |
+[GeneToDiseaseAssociation](GeneToDiseaseAssociation.md) |  |  no  |
+[CausalGeneToDiseaseAssociation](CausalGeneToDiseaseAssociation.md) |  |  no  |
+[CorrelatedGeneToDiseaseAssociation](CorrelatedGeneToDiseaseAssociation.md) |  |  no  |
+[DruggableGeneToDiseaseAssociation](DruggableGeneToDiseaseAssociation.md) |  |  no  |
+[VariantToPhenotypicFeatureAssociation](VariantToPhenotypicFeatureAssociation.md) |  |  no  |
+[GeneAsAModelOfDiseaseAssociation](GeneAsAModelOfDiseaseAssociation.md) |  |  no  |
+[GeneHasVariantThatContributesToDiseaseAssociation](GeneHasVariantThatContributesToDiseaseAssociation.md) |  |  no  |
+
+
+
+
+
+
+
+## Properties
+
+* Range: [BiologicalSex](BiologicalSex.md)
+
+
+
+
+
+## Identifier and Mapping Information
+
+
+
+
+
+
+
+### Schema Source
+
+
+* from schema: https://identifiers.org/brain-bican/kb-model
+
+
+
+
+## LinkML Source
+
+<details>
+```yaml
+name: sex qualifier
+description: a qualifier used in a phenotypic association to state whether the association
+  is specific to a particular sex.
+in_subset:
+- translator_minimal
+from_schema: https://identifiers.org/brain-bican/kb-model
+rank: 1000
+is_a: qualifier
+domain: association
+alias: sex_qualifier
+domain_of:
+- entity to phenotypic feature association mixin
+range: biological sex
+
+```
+</details>
