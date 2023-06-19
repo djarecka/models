@@ -83,7 +83,7 @@ URI: [bican:WebPage](https://identifiers.org/brain-bican/vocab/WebPage)
 | [summary](summary.md) | 0..1 <br/> [String](String.md) | executive  summary of a publication | [Publication](Publication.md) |
 | [keywords](keywords.md) | 0..* <br/> [String](String.md) | keywords tagging a publication | [Publication](Publication.md) |
 | [mesh_terms](mesh_terms.md) | 0..* <br/> [Uriorcurie](Uriorcurie.md) | mesh terms tagging a publication | [Publication](Publication.md) |
-| [xref](xref.md) | 0..* <br/> [Uriorcurie](Uriorcurie.md) | A database cross reference or alternative identifier for a NamedThing or edge... | [Publication](Publication.md), [NamedThing](NamedThing.md) |
+| [xref](xref.md) | 0..* <br/> [Uriorcurie](Uriorcurie.md) | A database cross reference or alternative identifier for a NamedThing or edge... | [NamedThing](NamedThing.md), [Publication](Publication.md) |
 | [license](license.md) | 0..1 <br/> [String](String.md) |  | [InformationContentEntity](InformationContentEntity.md) |
 | [rights](rights.md) | 0..1 <br/> [String](String.md) |  | [InformationContentEntity](InformationContentEntity.md) |
 | [format](format.md) | 0..1 <br/> [String](String.md) |  | [InformationContentEntity](InformationContentEntity.md) |

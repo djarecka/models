@@ -70,11 +70,11 @@ URI: [bican:PhenotypicSex](https://identifiers.org/brain-bican/vocab/PhenotypicS
 
 | Name | Cardinality and Range | Description | Inheritance |
 | ---  | --- | --- | --- |
-| [name](name.md) | 0..1 <br/> [LabelType](LabelType.md) | The human-readable 'attribute name' can be set to a string which reflects its... | [Attribute](Attribute.md), [Entity](Entity.md) |
+| [name](name.md) | 0..1 <br/> [LabelType](LabelType.md) | The human-readable 'attribute name' can be set to a string which reflects its... | [Entity](Entity.md), [Attribute](Attribute.md) |
 | [has_attribute_type](has_attribute_type.md) | 1..1 <br/> [OntologyClass](OntologyClass.md) | connects an attribute to a class that describes it | [Attribute](Attribute.md) |
 | [has_quantitative_value](has_quantitative_value.md) | 0..* <br/> [QuantityValue](QuantityValue.md) | connects an attribute to a value | [Attribute](Attribute.md) |
 | [has_qualitative_value](has_qualitative_value.md) | 0..1 <br/> [NamedThing](NamedThing.md) | connects an attribute to a value | [Attribute](Attribute.md) |
-| [iri](iri.md) | 0..1 <br/> [IriType](IriType.md) | An IRI for an entity | [Attribute](Attribute.md), [Entity](Entity.md) |
+| [iri](iri.md) | 0..1 <br/> [IriType](IriType.md) | An IRI for an entity | [Entity](Entity.md), [Attribute](Attribute.md) |
 | [id](id.md) | 1..1 <br/> [String](String.md) | A unique identifier for an entity | [Entity](Entity.md), [OntologyClass](OntologyClass.md) |
 | [provided_by](provided_by.md) | 0..* <br/> [String](String.md) | The value in this node property represents the knowledge provider that create... | [NamedThing](NamedThing.md) |
 | [xref](xref.md) | 0..* <br/> [Uriorcurie](Uriorcurie.md) | A database cross reference or alternative identifier for a NamedThing or edge... | [NamedThing](NamedThing.md) |

@@ -95,11 +95,11 @@ URI: [bican:GenomicBackgroundExposure](https://identifiers.org/brain-bican/vocab
 | [in_taxon](in_taxon.md) | 0..* <br/> [OrganismTaxon](OrganismTaxon.md) | connects an entity to its taxonomic classification | [ThingWithTaxon](ThingWithTaxon.md) |
 | [in_taxon_label](in_taxon_label.md) | 0..1 <br/> [LabelType](LabelType.md) | The human readable scientific name for the taxon of the entity | [ThingWithTaxon](ThingWithTaxon.md) |
 | [id](id.md) | 1..1 <br/> [String](String.md) | A unique identifier for an entity | [Entity](Entity.md), [OntologyClass](OntologyClass.md) |
-| [name](name.md) | 0..1 <br/> [LabelType](LabelType.md) | The human-readable 'attribute name' can be set to a string which reflects its... | [Attribute](Attribute.md), [Entity](Entity.md) |
+| [name](name.md) | 0..1 <br/> [LabelType](LabelType.md) | The human-readable 'attribute name' can be set to a string which reflects its... | [Entity](Entity.md), [Attribute](Attribute.md) |
 | [has_attribute_type](has_attribute_type.md) | 1..1 <br/> [OntologyClass](OntologyClass.md) | connects an attribute to a class that describes it | [Attribute](Attribute.md) |
 | [has_quantitative_value](has_quantitative_value.md) | 0..* <br/> [QuantityValue](QuantityValue.md) | connects an attribute to a value | [Attribute](Attribute.md) |
 | [has_qualitative_value](has_qualitative_value.md) | 0..1 <br/> [NamedThing](NamedThing.md) | connects an attribute to a value | [Attribute](Attribute.md) |
-| [iri](iri.md) | 0..1 <br/> [IriType](IriType.md) | An IRI for an entity | [Attribute](Attribute.md), [Entity](Entity.md) |
+| [iri](iri.md) | 0..1 <br/> [IriType](IriType.md) | An IRI for an entity | [Entity](Entity.md), [Attribute](Attribute.md) |
 | [provided_by](provided_by.md) | 0..* <br/> [String](String.md) | The value in this node property represents the knowledge provider that create... | [NamedThing](NamedThing.md) |
 | [xref](xref.md) | 0..* <br/> [Uriorcurie](Uriorcurie.md) | A database cross reference or alternative identifier for a NamedThing or edge... | [NamedThing](NamedThing.md) |
 | [full_name](full_name.md) | 0..1 <br/> [LabelType](LabelType.md) | a long-form human readable name for a thing | [NamedThing](NamedThing.md) |

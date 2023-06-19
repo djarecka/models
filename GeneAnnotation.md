@@ -82,7 +82,7 @@ URI: [bican:GeneAnnotation](https://identifiers.org/brain-bican/vocab/GeneAnnota
 | [molecular_type](molecular_type.md) | 0..1 <br/> [BioType](BioType.md) |  | direct |
 | [symbol](symbol.md) | 0..1 <br/> [String](String.md) | Symbol for a particular thing | [Gene](Gene.md) |
 | [synonym](synonym.md) | 0..* <br/> [LabelType](LabelType.md) | Alternate human-readable names for a thing | [Gene](Gene.md) |
-| [xref](xref.md) | 0..* <br/> [Uriorcurie](Uriorcurie.md) | A database cross reference or alternative identifier for a NamedThing or edge... | [Gene](Gene.md), [NamedThing](NamedThing.md) |
+| [xref](xref.md) | 0..* <br/> [Uriorcurie](Uriorcurie.md) | A database cross reference or alternative identifier for a NamedThing or edge... | [NamedThing](NamedThing.md), [Gene](Gene.md) |
 | [has_biological_sequence](has_biological_sequence.md) | 0..1 <br/> [BiologicalSequence](BiologicalSequence.md) | connects a genomic feature to its sequence | [GenomicEntity](GenomicEntity.md) |
 | [id](id.md) | 1..1 <br/> [String](String.md) | A unique identifier for an entity | [Entity](Entity.md), [OntologyClass](OntologyClass.md) |
 | [in_taxon](in_taxon.md) | 0..* <br/> [OrganismTaxon](OrganismTaxon.md) | connects an entity to its taxonomic classification | [ThingWithTaxon](ThingWithTaxon.md) |
