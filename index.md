@@ -783,7 +783,6 @@ Name: kb-model
 | [temporal_interval_qualifier](temporal_interval_qualifier.md) | a constraint of a time interval placed upon the truth value of an association |
 | [temporally_related_to](temporally_related_to.md) | holds between two entities with a temporal relationship |
 | [timepoint](timepoint.md) | a point in time |
-| [total_sample_size](total_sample_size.md) | The total number of patients or participants within a sample population |
 | [trade_name](trade_name.md) |  |
 | [transcribed_from](transcribed_from.md) | x is transcribed from y if and only if x is synthesized from template y |
 | [transcribed_to](transcribed_to.md) | inverse of transcribed from |
