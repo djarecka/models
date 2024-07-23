@@ -1,0 +1,139 @@
+name: library-generation-schema
+description: TBD
+title: UI Schema
+id: https://identifiers.org/brain-bican/library-generation-schema
+imports:
+- linkml:types
+prefixes:
+  linkml: https://w3id.org/linkml/
+  bican: https://identifiers.org/brain-bican/vocab/
+  spdx: http://spdx.org/rdf/terms#
+  schema: http://schema.org/
+  ncbi: https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi
+  NIMP: http://example.org/NIMP/
+default_prefix: bican
+default_range: string
+
+
+
+slots:
+  main_box:
+    description: summary of the box
+    range: SummaryBox
+  donor_box:
+    description: donor information
+    range: DonorBox
+  species_box:
+    description: species information
+    range: SpeciesBox
+  box_header:
+    description: header of the box
+    range: string
+    required: true
+  box_description:
+    description: description of the box
+    range: string
+    required: true
+  box_additional_info:
+    description: additional information
+    range: AdditionalInfo
+  box_footer:
+    description: footer of the box
+    range: string
+  local_name:
+    description: local name of teh entity
+    range: string
+    notes: todo query, obj.id
+  category:
+    description: category of the entity
+    range: string
+    notes: todo query, obj.id
+
+
+classes:
+  EntityView:
+    description: view of a specific entity
+    slots:
+      - main_box
+      - donor_box
+      - species_box
+ #     - source_box
+    slot_usage:
+      - main_box:
+          required: true
+
+
+  LAEntityView:
+    is_a: EntityView
+    description: view of a library aliquot
+    slot_usage:
+      - donor_box:
+          required: true
+      - species_box:
+          required: true
+
+
+  Box:
+    description: a general box
+    slots:
+      - box_header
+      - box_description
+      - box_additional_info
+      - box_footer
+
+
+  SummaryBox:
+    is_a: Box
+    description: a summary box
+    slots:
+      - local_name
+      - category
+    slot_usage:
+      - box_header:
+          notes: todo query, obj.id
+          description: it should be ID entity
+
+  DonorBox:
+    is_a: Box
+    description: donor information box
+    slot_usage:
+      - box_header:
+          notes: todo query, obj.donor.id
+          description: it should be donor id
+    attributes:
+      - age_of_death_description:
+          required: true
+      - age_of_death_point:
+          required: true
+
+  SpeciesBox:
+    is_a: Box
+    description: species information box
+    slot_usage:
+      - box_header:
+          notes: todo query, obj.donor.species.id
+          description: it should be species id
+    attributes:
+      - local_species_name:
+          required: true
+      - full_species_name:
+          required: true
+      - species_taxonomy_id:
+          required: true
+
+
+  AdditionalInfo:
+    description: additional information
+    attributes:
+      header:
+      key_value_pairs:
+        range: KeyValuePairs
+        multivalued: true
+
+  KeyValuePairs:
+    description: key value pairs
+    attributes:
+      key:
+        required: true
+      value:
+        required: true

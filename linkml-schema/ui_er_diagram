@@ -1,0 +1,57 @@
+```mermaid
+erDiagram
+EntityView {
+
+}
+LAEntityView {
+
+}
+Box {
+    string box_header  
+    string box_description  
+    string box_footer  
+}
+SummaryBox {
+    string local_name  
+    string category  
+    string box_header  
+    string box_description  
+    string box_footer  
+}
+DonorBox {
+    string age_of_death_description  
+    string age_of_death_point  
+    string box_header  
+    string box_description  
+    string box_footer  
+}
+SpeciesBox {
+    string local_species_name  
+    string full_species_name  
+    string species_taxonomy_id  
+    string box_header  
+    string box_description  
+    string box_footer  
+}
+AdditionalInfo {
+    string header  
+}
+KeyValuePairs {
+    string key  
+    string value  
+}
+
+EntityView ||--|| SummaryBox : "main_box"
+EntityView ||--|o DonorBox : "donor_box"
+EntityView ||--|o SpeciesBox : "species_box"
+LAEntityView ||--|| SummaryBox : "main_box"
+LAEntityView ||--|| DonorBox : "donor_box"
+LAEntityView ||--|| SpeciesBox : "species_box"
+Box ||--|o AdditionalInfo : "box_additional_info"
+SummaryBox ||--|o AdditionalInfo : "box_additional_info"
+DonorBox ||--|o AdditionalInfo : "box_additional_info"
+SpeciesBox ||--|o AdditionalInfo : "box_additional_info"
+AdditionalInfo ||--}o KeyValuePairs : "key_value_pairs"
+
+```
+
