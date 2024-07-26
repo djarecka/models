@@ -1,57 +1,33 @@
 ```mermaid
 erDiagram
 EntityView {
-
-}
-LAEntityView {
-
+    string id  
+    string name  
+    string description  
 }
 Box {
-    string box_header  
-    string box_description  
-    string box_footer  
-}
-SummaryBox {
-    string local_name  
-    string category  
-    string box_header  
-    string box_description  
-    string box_footer  
-}
-DonorBox {
-    string age_of_death_description  
-    string age_of_death_point  
-    string box_header  
-    string box_description  
-    string box_footer  
-}
-SpeciesBox {
-    string local_species_name  
-    string full_species_name  
-    string species_taxonomy_id  
-    string box_header  
-    string box_description  
-    string box_footer  
+    string id  
+    string name  
 }
 AdditionalInfo {
     string header  
+    bool is_iterable  
 }
-KeyValuePairs {
+KeyQuery {
+    string key  
+    string sqrl_query  
+}
+KeyValue {
     string key  
     string value  
 }
 
-EntityView ||--|| SummaryBox : "main_box"
-EntityView ||--|o DonorBox : "donor_box"
-EntityView ||--|o SpeciesBox : "species_box"
-LAEntityView ||--|| SummaryBox : "main_box"
-LAEntityView ||--|| DonorBox : "donor_box"
-LAEntityView ||--|| SpeciesBox : "species_box"
+EntityView ||--}| Box : "boxes"
+Box ||--|| KeyQuery : "box_header"
+Box ||--|| KeyValue : "box_description"
 Box ||--|o AdditionalInfo : "box_additional_info"
-SummaryBox ||--|o AdditionalInfo : "box_additional_info"
-DonorBox ||--|o AdditionalInfo : "box_additional_info"
-SpeciesBox ||--|o AdditionalInfo : "box_additional_info"
-AdditionalInfo ||--}o KeyValuePairs : "key_value_pairs"
+Box ||--|o KeyQuery : "box_footer"
+AdditionalInfo ||--}o KeyQuery : "properties"
 
 ```
 
