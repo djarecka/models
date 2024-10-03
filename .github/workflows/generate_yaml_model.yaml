@@ -40,6 +40,14 @@ jobs:
           bkbit schema2model -o library_generation.yaml --gsheet --gsheet-download-dir source_library_generation/gsheet_output  source_library_generation/gsheet.yaml  --no-inlined
           cd ..
 
+      - name: Upload Downloaded File
+        uses: actions/upload-artifact@v4
+        with:
+          name: downloaded_file
+          path: |
+            linkml-schema/library_generation.yaml
+
+
       - name: Adding other model representations to git
         run: |
           git config --local user.email "action@github.com"
