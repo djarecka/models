@@ -4,8 +4,9 @@ on:
   push:
     branches:
       - main
-    paths:
-      - 'linkml-schema/source_library_generation/**'
+      - test_ga_yaml
+#    paths:
+#      - 'linkml-schema/source_library_generation/**'
 
 permissions:
   contents: write
