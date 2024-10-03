@@ -52,7 +52,7 @@ jobs:
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-	  if ! git ls-files --error-unmatch linkml-schema/library_generation.yaml; then
+          if ! git ls-files --error-unmatch linkml-schema/library_generation.yaml; then
             git add linkml-schema/library_generation.yaml
             git add linkml-schema/source_library_generation/gsheet_output
             git commit -m "adding a new linkml model"
