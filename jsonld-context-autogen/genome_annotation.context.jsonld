@@ -207,24 +207,12 @@
          "@id": "genome_assemblies"
       },
       "authority": {
-         "@context": {
-            "@vocab": "@null",
-            "text": "skos:notation",
-            "description": "skos:prefLabel",
-            "meaning": "@id"
-         },
          "@id": "authority"
       },
       "category": {
          "@id": "biolink:category"
       },
       "checksum_algorithm": {
-         "@context": {
-            "@vocab": "@null",
-            "text": "skos:notation",
-            "description": "skos:prefLabel",
-            "meaning": "@id"
-         },
          "@id": "checksum_algorithm"
       },
       "value": {
