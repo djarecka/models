@@ -498,7 +498,7 @@
          "@id": "biolink:version"
       },
       "was_derived_from": {
-         "@type": "prov:Entity",
+         "@type": "@id",
          "@id": "prov:wasDerivedFrom"
       },
       "was_generated_by": {
