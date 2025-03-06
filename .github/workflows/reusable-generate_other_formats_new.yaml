@@ -11,6 +11,11 @@ on:
         description: 'linkml version to test (optional, by default it uses one from the pyproject.toml)'
         required: false
         type: string
+      open_pr:
+        description: 'Open a PR with the changes'
+        required: false
+        type: boolean
+        default: true
 
 permissions:
   contents: write
@@ -75,6 +80,13 @@ jobs:
         run: |
           git config --global user.name "action@github.com"
           git config --global user.email "Github Actions"
+
+          if [ ${{ inputs.open_pr }} = true ]; then
+            # Define a unique branch name
+            BRANCH_NAME="autogen-${{ github.run_id }}"
+            git checkout -b $BRANCH_NAME
+          fi
+
           git branch
           models_list="${{ inputs.model_name }}"
           echo "Model list: $models_list"
@@ -88,7 +100,12 @@ jobs:
           if ! git diff --quiet HEAD; then
             git commit -m "generate another formats for ${models_list} model(s)"
             git pull --rebase # to avoid conflicts with different wf runs
-            git push
+            if [ ${{ inputs.open_pr }} = true ]; then
+              git push --set-upstream origin $BRANCH_NAME
+              gh pr create --title "[DO NOT MERGE] todoGenerate other formats for ${models_list} model(s)" --body "This PR was automatically created by a GitHub Action" --base main --head $BRANCH_NAME
+            else
+              git push
+            fi
           else
             echo "No changes to commit"
           fi
