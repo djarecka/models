@@ -79,9 +79,9 @@ jobs:
           
       - name: Check if GITHUB_TOKEN is available
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Set GH_TOKEN at the step level
+          GH_TOKEN: ${{ secrets.GH_PR }}  # Set GH_TOKEN at the step level
         run: |
-          if [[ -z "${{ secrets.GITHUB_TOKEN }}" ]]; then
+          if [[ -z "${{ secrets.GH_PR }}" ]]; then
             echo "GITHUB_TOKEN is not available!"
             exit 1
           else
@@ -90,7 +90,7 @@ jobs:
 
       - name: Adding other model representations to git
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Set GH_TOKEN at the step level
+          GH_TOKEN: ${{ secrets.GH_PR }}
         run: |
           git config --global user.name "action@github.com"
           git config --global user.email "Github Actions"
