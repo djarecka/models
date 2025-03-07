@@ -99,11 +99,11 @@ jobs:
           done
           if ! git diff --quiet HEAD; then
             git commit -m "generate another formats for ${models_list} model(s)"
-            git pull --rebase # to avoid conflicts with different wf runs
             if [ ${{ inputs.open_pr }} = true ]; then
               git push --set-upstream origin $BRANCH_NAME
               gh pr create --title "[DO NOT MERGE] todoGenerate other formats for ${models_list} model(s)" --body "This PR was automatically created by a GitHub Action" --base main --head $BRANCH_NAME
             else
+              git pull --rebase # to avoid conflicts with different wf runs
               git push
             fi
           else
