@@ -19,6 +19,7 @@ on:
 
 permissions:
   contents: write
+  pull-requests: write
 
 jobs:
   generate:
@@ -75,8 +76,21 @@ jobs:
             echo "erdiagram generated";
           done
           cd ..
+          
+      - name: Check if GITHUB_TOKEN is available
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Set GH_TOKEN at the step level
+        run: |
+          if [[ -z "${{ secrets.GITHUB_TOKEN }}" ]]; then
+            echo "GITHUB_TOKEN is not available!"
+            exit 1
+          else
+            echo "✅ GITHUB_TOKEN is available!"
+          fi
 
       - name: Adding other model representations to git
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Set GH_TOKEN at the step level
         run: |
           git config --global user.name "action@github.com"
           git config --global user.email "Github Actions"
