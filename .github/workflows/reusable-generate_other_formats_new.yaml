@@ -115,7 +115,6 @@ jobs:
             git commit -m "generate another formats for ${models_list} model(s)"
             if [ ${{ inputs.open_pr }} = true ]; then
               export GH_TOKEN=${{ secrets.GH_PR }}  # Explicitly set GH_TOKEN
-              gh auth status  # Check authentication
               git push --set-upstream origin $BRANCH_NAME
               gh pr create --title "[DO NOT MERGE] todoGenerate other formats for ${models_list} model(s)" --body "This PR was automatically created by a GitHub Action" --base main --head $BRANCH_NAME
             else
